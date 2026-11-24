@@ -1,0 +1,12 @@
+[Unit]
+Description=EC2 Automated Data Pipeline
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ec2-user
+WorkingDirectory=/opt/data-pipeline/app
+ExecStart=/opt/data-pipeline/venv/bin/python /opt/data-pipeline/app/src/pipeline.py
+StandardOutput=append:/var/log/data-pipeline/pipeline.log
+StandardError=append:/var/log/data-pipeline/pipeline.log

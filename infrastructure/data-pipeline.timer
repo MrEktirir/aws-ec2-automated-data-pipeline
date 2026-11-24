@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Data Pipeline Every 5 Minutes
+
+[Timer]
+OnCalendar=*:0/5
+Persistent=true
+Unit=data-pipeline.service
+
+[Install]
+WantedBy=timers.target
